@@ -6,5 +6,6 @@ public class Game extends JPanel
 {
 	public class Game()
 	{
+	
 	}
 }
