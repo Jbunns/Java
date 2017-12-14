@@ -8,12 +8,18 @@ public class GameCard extends JPanel
 {
 	public GameCard()
 	{
-		JPanel[] card = new JPanel[8]; // panels on the board
+		GridLayout theGrid = new GridLayout(4,4);
+		setLayout(theGrid);
+		
+		JPanel[] card = new JPanel[8]; 
 		ImageIcon[] theImage = new ImageIcon[8];
 		
 		for(int x = 0; x < 8; x++)
-			card[x] = new JPanel();
-		
+			{
+				card[x] = new JPanel(); 
+			}
+			
+			
 		for(int x = 0; x < 8; x++)
 			theImage[x] = new ImageIcon();
 		
@@ -30,8 +36,8 @@ public class GameCard extends JPanel
 		
 		for(int x = 0; x < card.length; x++)
 		{
-			card[x].setBackground(Color.black);
 			card[x].add(new JLabel(theImage[randOrder.get(x)]));
+			card[x].setBackground(Color.black);
 			add(card[x]);
 		}
 	}

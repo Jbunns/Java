@@ -8,12 +8,10 @@ public class GameDriver
 	{
 		JFrame window = new JFrame();
 		window.setTitle("Matching");
-		window.setSize(1000, 1000);
+		window.setSize(400, 400);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		Container thePane = window.getContentPane();
-		GridLayout theGrid = new GridLayout(4,4);
-		thePane.setLayout(theGrid);
 		
 		GameCard GC1 = new GameCard();
 		
