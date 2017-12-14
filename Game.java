@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class Game extends JPanel
 {
-	public class Game()
+	public Game()
 	{
 	
 	}

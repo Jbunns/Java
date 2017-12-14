@@ -1,6 +1,8 @@
 import javax.swing.*;  
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GameCard extends JPanel
 {
@@ -24,38 +26,46 @@ public class GameCard extends JPanel
 		theImage[6] = new ImageIcon("rockies.jpg");
 		theImage[7] = new ImageIcon("marlins.jpg");
 	
-		card[0].add(new JLabel(theImage[0]));
-		add(card[0]);
+		ArrayList<Integer> randOrder = getRandomNonRepeatingIntegers(0, card.length);
 		
-		/*for(int x = 0; x < 8; x++)
+		for(int x = 0; x < card.length; x++)
 		{
 			card[x].setBackground(Color.black);
+			card[x].add(new JLabel(theImage[randOrder.get(x)]));
 			add(card[x]);
-		} */
+		}
+	}
+	
+	/**
+	 * Gets a random integer between the minimum (inclusive) and maximum (exclusive) values
+	 */
+	private int getRandomInt(int min, int max)
+	{
+		Random random = new Random();
+
+  		return random.nextInt(max - min) + min;
+	}
+
+	/**
+	 * Gets a shuffled ArrayList of the numbers between the minimum (inclusive) and
+	 * maximum (exclusive) values
+	 */
+	private ArrayList<Integer> getRandomNonRepeatingIntegers(int min,int max)
+	{
+		int size = max - min;
 		
-		/* this is my test for random
-				public static int getRandomInt(int min, int max)
+		ArrayList<Integer> numbers = new ArrayList<Integer>();
+
+		while (numbers.size() < size) 
 		{
-			Random random = new Random();
+			int random = getRandomInt(min, max);
 
-    		return random.nextInt((max - min) + 1) + min;
-		}
-
-		public static ArrayList<Integer> getRandomNonRepeatingIntegers(int size, int min,int max)
-		{
-			ArrayList<Integer> numbers = new ArrayList<Integer>();
-
-			while (numbers.size() < size) 
-			{
-				int random = getRandomInt(min, max);
-
-        		if (!numbers.contains(random)) 
-        		{
-            		numbers.add(random);
-           		}
-  			}
-			return numbers;
-		}
-		}*/
+	        if (!numbers.contains(random)) 
+	        {
+	       		numbers.add(random);
+	        }
+	  	}
+				
+		return numbers;
 	}
 }
