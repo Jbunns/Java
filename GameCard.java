@@ -18,13 +18,12 @@ public class GameCard extends JPanel
 			{
 				card[x] = new JPanel(); 
 			}
-			
-			
+				
 		for(int x = 0; x < 8; x++)
 			theImage[x] = new ImageIcon();
 		
 		theImage[0] = new ImageIcon("cards.jpg");
-		theImage[1] = new ImageIcon("braves.jpg");
+		theImage[1] = new ImageIcon("braves.jpg"); // teacher said to put this in game() just create the panels in this class
 		theImage[2] = new ImageIcon("brewers.jpg");
 		theImage[3] = new ImageIcon("reds.jpg");
 		theImage[4] = new ImageIcon("cubs.jpg");
@@ -36,9 +35,11 @@ public class GameCard extends JPanel
 		
 		for(int x = 0; x < card.length; x++)
 		{
-			card[x].add(new JLabel(theImage[randOrder.get(x)]));
-			card[x].setBackground(Color.black);
+		card[x].add(new JLabel(theImage[x]));
+		//  card[x].add(new JLabel(theImage[randOrder.get(x)]));
+		//	card[x].setBackground(Color.black);
 			add(card[x]);
+			//theImage.paintIcon(this, g, 0, 0);
 		}
 	}
 	
