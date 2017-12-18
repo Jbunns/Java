@@ -44,7 +44,8 @@ public class Board extends JFrame
         }
         this.cards = cardsList;
         //set up the timer
-        t = new Timer(750, new ActionListener(){
+        t = new Timer(750, new ActionListener()
+        {
             public void actionPerformed(ActionEvent ae){
                 checkCards();
             }
@@ -54,14 +55,17 @@ public class Board extends JFrame
 
         Container pane = getContentPane();
         pane.setLayout(new GridLayout(4, 5));
-        for (Card c : cards){
+        for (Card c : cards)
+        {
             pane.add(c);
         }
         setTitle("Memory Match");
     }
 
-    public void doTurn(){
-        if (c1 == null && c2 == null){
+    public void doTurn()
+    {
+        if (c1 == null && c2 == null)
+        {
             c1 = selectedCard;
             c1.setText(String.valueOf(c1.getId()));
         }
@@ -74,19 +78,23 @@ public class Board extends JFrame
         }
     }
 
-    public void checkCards(){
-        if (c1.getId() == c2.getId()){//match condition
+    public void checkCards()
+    {
+        if (c1.getId() == c2.getId())
+        {//match condition
             c1.setEnabled(false); //disables the button
             c2.setEnabled(false);
             c1.setMatched(true); //flags the button as having been matched
             c2.setMatched(true);
-            if (this.isGameWon()){
+            if (this.isGameWon())
+            {
                 JOptionPane.showMessageDialog(this, "You win!");
                 System.exit(0);
             }
         }
 
-        else{
+        else
+        {
             c1.setText(""); //'hides' text
             c2.setText("");
         }
@@ -94,9 +102,12 @@ public class Board extends JFrame
         c2 = null;
     }
 
-    public boolean isGameWon(){
-        for(Card c: this.cards){
-            if (c.getMatched() == false){
+    public boolean isGameWon()
+    {
+        for(Card c: this.cards)
+        {
+            if (c.getMatched() == false)
+            {
                 return false;
             }
         }

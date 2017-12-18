@@ -7,11 +7,11 @@ public class Game1
 {
     public static void main(String[] args)
     {
-        Board b = new Board();
-        b.setPreferredSize(new Dimension(500,500)); //need to use this instead of setSize
-        b.setLocation(500, 250);
-        b.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        b.pack();
-        b.setVisible(true);
+        Board theBoard = new Board();
+        theBoard.setPreferredSize(new Dimension(500,500)); 
+    	theBoard.setLocation(500, 250);
+        theBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        theBoard.pack();
+        theBoard.setVisible(true);
     }   
 }
