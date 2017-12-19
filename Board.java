@@ -22,7 +22,7 @@ public class Board extends JFrame
     public Board()
     {
 
-        int pairs = 10;
+        int pairs = 8;
         List<Card> cardsList = new ArrayList<Card>();
         List<Integer> cardVals = new ArrayList<Integer>();
 
@@ -70,7 +70,7 @@ public class Board extends JFrame
         t.setRepeats(false);
 
         Container pane = getContentPane();
-        pane.setLayout(new GridLayout(4, 5));
+        pane.setLayout(new GridLayout(4, 4));
         for (Card c : cards)
         {
             pane.add(c);
@@ -83,12 +83,12 @@ public class Board extends JFrame
         if (c1 == null && c2 == null)
         {
             c1 = selectedCard;
-            c1.setText(String.valueOf(c1.getId()));
+            c1.setText(String.valueOf(c1.getId())); // change this to image icon
         }
 
         if (c1 != null && c1 != selectedCard && c2 == null){
             c2 = selectedCard;
-            c2.setText(String.valueOf(c2.getId()));
+            c2.setText(String.valueOf(c2.getId())); // change this to image icon
             t.start();
 
         }
@@ -96,7 +96,7 @@ public class Board extends JFrame
 
     public void checkCards()
     {
-        if (c1.getId() == c2.getId())
+        if (c1.getId() == c2.getId()) // need to change this to image icon comparison
         {//match condition
             c1.setEnabled(false); //disables the button
             c2.setEnabled(false);
