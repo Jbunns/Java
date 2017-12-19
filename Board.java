@@ -6,6 +6,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import javax.swing.*;  
 
 @SuppressWarnings("serial")
 public class Board extends JFrame
@@ -25,28 +26,43 @@ public class Board extends JFrame
         List<Card> cardsList = new ArrayList<Card>();
         List<Integer> cardVals = new ArrayList<Integer>();
 
-        for (int i = 0; i < pairs; i++){
+        for (int i = 0; i < pairs; i++)
+        {
             cardVals.add(i);
             cardVals.add(i);
         }
         Collections.shuffle(cardVals);
+        
+        ImageIcon stl = new ImageIcon("cards.jpg");
+        ImageIcon chicago = new ImageIcon("cubs.jpg");
+        ImageIcon miami = new ImageIcon("marlins.jpg");
+        ImageIcon atl = new ImageIcon("braves.jpg");
+        ImageIcon milw = new ImageIcon("brewers.jpg");
+        ImageIcon cincy = new ImageIcon("reds.jpg");
+        ImageIcon colo = new ImageIcon("rockies.jpg");
+        ImageIcon washington = new ImageIcon("nationals.jpg");
+        
 
-        for (int val : cardVals){
+        for (int val : cardVals)
+        {
             Card c = new Card();
             c.setId(val);
-            c.addActionListener(new ActionListener(){
-                public void actionPerformed(ActionEvent ae){
+            c.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent ae)
+                {
                     selectedCard = c;
                     doTurn();
                 }
-            });
+       		});
             cardsList.add(c);
         }
         this.cards = cardsList;
         //set up the timer
         t = new Timer(750, new ActionListener()
         {
-            public void actionPerformed(ActionEvent ae){
+            public void actionPerformed(ActionEvent ae)
+            {
                 checkCards();
             }
         });
@@ -59,7 +75,7 @@ public class Board extends JFrame
         {
             pane.add(c);
         }
-        setTitle("Memory Match");
+        setTitle("Baseball Memory Match");
     }
 
     public void doTurn()
