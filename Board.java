@@ -104,7 +104,7 @@ public class Board extends JFrame
             c2.setMatched(true);
             if (this.isGameWon())
             {
-                JOptionPane.showMessageDialog(this, "You win!");
+                JOptionPane.showMessageDialog(this, "You won!");
                 System.exit(0);
             }
         }
