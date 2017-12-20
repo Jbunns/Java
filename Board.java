@@ -15,8 +15,8 @@ public class Board extends JFrame
 
     private List<Card> cards;
     private Card selectedCard;
-    private Card c1; // selections
-    private Card c2;
+    private Card selection1; // selections
+    private Card selection2;
     private Timer timer;
 
     public Board()
@@ -72,7 +72,7 @@ public class Board extends JFrame
             cardsList.add(c);
         }
         this.cards = cardsList;
-        timer = new Timer(750, new ActionListener()
+        timer = new Timer(500, new ActionListener()
         {
             public void actionPerformed(ActionEvent ae)
             {
@@ -94,15 +94,16 @@ public class Board extends JFrame
 
     public void flip()
     {
-        if (c1 == null && c2 == null)
+        if (selection1 == null && selection2 == null)
         {
-            c1 = selectedCard;
-            c1.setText(String.valueOf(c1.getId())); // change this to image icon
+            selection1 = selectedCard;
+            selection1.setIcon(selection1.getId());
         }
 
-        if (c1 != null && c1 != selectedCard && c2 == null){
-            c2 = selectedCard;
-            c2.setText(String.valueOf(c2.getId())); // change this to image icon
+        if (selection1 != null && selection1 != selectedCard && selection2 == null)
+        {
+            selection2 = selectedCard;
+            selection2.setIcon(selection2.getId());
             timer.start();
 
         }
@@ -110,12 +111,12 @@ public class Board extends JFrame
 
     public void checkCards()
     {
-        if (c1.getId() == c2.getId()) // need to change this to image icon comparison
-        {//match condition
-            c1.setEnabled(false); //disables the button
-            c2.setEnabled(false);
-            c1.setMatched(true); //flags the button as having been matched
-            c2.setMatched(true);
+        if (selection1.getId() == selection2.getId())
+        {
+            selection1.setEnabled(false);
+            selection2.setEnabled(false);
+            selection1.setMatched(true); 
+            selection2.setMatched(true);
             if (this.gameOver())
             {
                 JOptionPane.showMessageDialog(this, "You won!");
@@ -125,11 +126,11 @@ public class Board extends JFrame
 
         else
         {
-            c1.setText(""); //'hides' text
-            c2.setText("");
+            selection1.setText(""); //'hides' text
+            selection2.setText("");
         }
-        c1 = null; //reset c1 and c2
-        c2 = null;
+        selection1 = null; 
+        selection2 = null;
     }
 
     public boolean gameOver()
