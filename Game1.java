@@ -11,7 +11,8 @@ public class Game1
         theBoard.setPreferredSize(new Dimension(500,500)); 
     	theBoard.setLocation(500, 250);
         theBoard.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        theBoard.pack();
+        theBoard.pack(); //sizing
+        
         theBoard.setVisible(true);
     }   
 }

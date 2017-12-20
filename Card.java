@@ -1,6 +1,6 @@
 import javax.swing.JButton;
 
-@SuppressWarnings("serial")
+@SuppressWarnings("serial") //strong-arm compiler
 public class Card extends JButton
 {
     private int id;

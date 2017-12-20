@@ -8,14 +8,14 @@ import java.util.List;
 import java.util.Collections;
 import javax.swing.*;  
 
-@SuppressWarnings("serial")
+@SuppressWarnings("serial") //strong-arm compiler
 public class Board extends JFrame
 {
 
 
     private List<Card> cards;
     private Card selectedCard;
-    private Card c1;
+    private Card c1; // selections
     private Card c2;
     private Timer t;
 
@@ -52,7 +52,7 @@ public class Board extends JFrame
                 public void actionPerformed(ActionEvent ae)
                 {
                     selectedCard = c;
-                    doTurn();
+                    flip();
                 }
        		});
             cardsList.add(c);
@@ -78,7 +78,7 @@ public class Board extends JFrame
         setTitle("Baseball Memory Match");
     }
 
-    public void doTurn()
+    public void flip()
     {
         if (c1 == null && c2 == null)
         {
@@ -102,7 +102,7 @@ public class Board extends JFrame
             c2.setEnabled(false);
             c1.setMatched(true); //flags the button as having been matched
             c2.setMatched(true);
-            if (this.isGameWon())
+            if (this.gameOver())
             {
                 JOptionPane.showMessageDialog(this, "You won!");
                 System.exit(0);
@@ -118,7 +118,7 @@ public class Board extends JFrame
         c2 = null;
     }
 
-    public boolean isGameWon()
+    public boolean gameOver()
     {
         for(Card c: this.cards)
         {
