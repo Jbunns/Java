@@ -58,8 +58,7 @@ public class Board extends JFrame
             cardsList.add(c);
         }
         this.cards = cardsList;
-        //set up the timer
-        t = new Timer(750, new ActionListener()
+        timer = new Timer(750, new ActionListener()
         {
             public void actionPerformed(ActionEvent ae)
             {
@@ -67,11 +66,12 @@ public class Board extends JFrame
             }
         });
 
-        t.setRepeats(false);
+        timer.setRepeats(false);
 
         Container pane = getContentPane();
         pane.setLayout(new GridLayout(4, 4));
-        for (Card c : cards)
+        pane.setBackground(Color.black);
+        for (Card c : cards) // for each
         {
             pane.add(c);
         }
@@ -89,7 +89,7 @@ public class Board extends JFrame
         if (c1 != null && c1 != selectedCard && c2 == null){
             c2 = selectedCard;
             c2.setText(String.valueOf(c2.getId())); // change this to image icon
-            t.start();
+            timer.start();
 
         }
     }
