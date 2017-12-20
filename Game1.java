@@ -1,6 +1,12 @@
-
-import java.awt.Dimension;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import javax.swing.*;
 
 
 public class Game1

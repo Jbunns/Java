@@ -17,21 +17,14 @@ public class Board extends JFrame
     private Card selectedCard;
     private Card c1; // selections
     private Card c2;
-    private Timer t;
+    private Timer timer;
 
     public Board()
     {
 
         int pairs = 8;
         List<Card> cardsList = new ArrayList<Card>();
-        List<Integer> cardVals = new ArrayList<Integer>();
-
-        for (int i = 0; i < pairs; i++)
-        {
-            cardVals.add(i);
-            cardVals.add(i);
-        }
-        Collections.shuffle(cardVals);
+        List<ImageIcon> images = new ArrayList<ImageIcon>();
         
         ImageIcon stl = new ImageIcon("cards.jpg");
         ImageIcon chicago = new ImageIcon("cubs.jpg");
@@ -42,11 +35,32 @@ public class Board extends JFrame
         ImageIcon colo = new ImageIcon("rockies.jpg");
         ImageIcon washington = new ImageIcon("nationals.jpg");
         
+        images.add(stl);
+        images.add(chicago);
+        images.add(miami);
+        images.add(atl);
+        images.add(milw);
+        images.add(cincy);
+        images.add(colo);
+        images.add(washington);
+        
+        images.add(stl);
+        images.add(chicago);
+        images.add(miami);
+        images.add(atl);
+        images.add(milw);
+        images.add(cincy);
+        images.add(colo);
+        images.add(washington);
+        
+        
+        Collections.shuffle(images);
+        
 
-        for (int val : cardVals)
+        for (ImageIcon pic : images) // for each
         {
             Card c = new Card();
-            c.setId(val);
+            c.setId(pic);
             c.addActionListener(new ActionListener()
             {
                 public void actionPerformed(ActionEvent ae)
